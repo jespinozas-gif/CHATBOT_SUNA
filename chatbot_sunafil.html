@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatbot SUNAFIL</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button id="chat-toggle">💬</button>
+
+<div id="chat-panel">
+
+    <div id="chat-header">
+        Chatbot SUNAFIL
+        <span id="close-btn">✖</span>
+    </div>
+
+    <!-- LOGIN -->
+
+    <div id="login-section">
+
+        <input
+            type="password"
+            id="api-key"
+            placeholder="API Key Groq"
+        >
+
+        <select id="intendencia">
+            <option value="">Seleccione Intendencia</option>
+
+            <option>AMAZONAS</option>
+            <option>ANCASH</option>
+            <option>APURÍMAC</option>
+            <option>AREQUIPA</option>
+            <option>AYACUCHO</option>
+            <option>CAJAMARCA</option>
+            <option>CALLAO</option>
+            <option>CUSCO</option>
+            <option>HUANCAVELICA</option>
+            <option>HUÁNUCO</option>
+            <option>ICA</option>
+            <option>JUNÍN</option>
+            <option>LA LIBERTAD</option>
+            <option>LAMBAYEQUE</option>
+            <option>LIMA METROPOLITANA</option>
+            <option>LIMA REGIÓN</option>
+            <option>LORETO</option>
+            <option>MADRE DE DIOS</option>
+            <option>MOQUEGUA</option>
+            <option>PASCO</option>
+            <option>PIURA</option>
+            <option>PUNO</option>
+            <option>SAN MARTÍN</option>
+            <option>TACNA</option>
+            <option>TUMBES</option>
+            <option>UCAYALI</option>
+            <option>SDIE – DINI</option>
+
+        </select>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+        >
+
+        <button id="login-btn">
+            Ingresar
+        </button>
+
+    </div>
+
+    <!-- CHAT -->
+
+    <div id="chat-section" style="display:none;">
+
+        <div id="filters">
+
+            <h4>Categorías</h4>
+
+            <label>
+                <input
+                    type="checkbox"
+                    checked
+                    disabled
+                >
+                GENERAL
+            </label>
+
+            <label>
+                <input type="checkbox" class="categoria"
+                value="EVALUACIÓN DE DENUNCIAS">
+                EVALUACIÓN DE DENUNCIAS
+            </label>
+
+            <label>
+                <input type="checkbox" class="categoria"
+                value="GENERACIÓN DE ÓRDENES">
+                GENERACIÓN DE ÓRDENES
+            </label>
+
+            <label>
+                <input type="checkbox" class="categoria"
+                value="CIERRE DE ÓRDENES">
+                CIERRE DE ÓRDENES
+            </label>
+
+            <label>
+                <input type="checkbox" class="categoria"
+                value="IMPUTACIONES DE CARGO">
+                IMPUTACIONES DE CARGO
+            </label>
+
+            <label>
+                <input type="checkbox" class="categoria"
+                value="INFORMES FINALES">
+                INFORMES FINALES
+            </label>
+
+            <label>
+                <input type="checkbox" class="categoria"
+                value="PRIMERA INSTANCIA">
+                PRIMERA INSTANCIA
+            </label>
+
+            <label>
+                <input type="checkbox" class="categoria"
+                value="SEGUNDA INSTANCIA">
+                SEGUNDA INSTANCIA
+            </label>
+
+        </div>
+
+        <div id="chat-body"></div>
+
+        <div id="chat-footer">
+            <input
+                id="chat-input"
+                type="text"
+                placeholder="Ingrese su consulta..."
+            >
+
+            <button id="send-btn">
+                Enviar
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="widget.js"></script>
+
+</body>
+</html>
