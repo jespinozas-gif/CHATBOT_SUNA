@@ -86,6 +86,19 @@ async function sendMessage() {
         .forEach(c => categorias.push(c.value));
 
     try {
+        
+        const typingDiv = document.createElement("div");
+        typingDiv.className = "msg bot typing";
+        typingDiv.id = "typing-indicator";
+        
+        typingDiv.innerHTML = `
+        <div class="typing-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        `;
+        body.appendChild(typingDiv);
 
         const resp = await fetch(API_URL + "/chat", {
             method: "POST",
@@ -112,6 +125,7 @@ async function sendMessage() {
             return;
         }
 
+        document.getElementById("typing-indicator")?.remove();
         addMessage(data.respuesta, "bot");
 
     } catch (err) {
