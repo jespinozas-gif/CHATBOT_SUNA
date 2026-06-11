@@ -192,10 +192,12 @@ Reglas:
     except Exception as e:
 
         return jsonify({
+            "success": False,
             "respuesta": f"Error Groq: {str(e)}"
         })
 
     return jsonify({
+        "success": True,
         "respuesta": respuesta
     })
 
