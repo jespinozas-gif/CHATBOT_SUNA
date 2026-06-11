@@ -96,6 +96,8 @@ def chat():
 
     api_key = data.get("api_key")
     intendencia = data.get("intendencia")
+    if intendencia == "LIMA METROPOLITANA": 
+        intendencia = "ILM"
     categorias = data.get("categorias", [])
     pregunta = data.get("pregunta")
 
