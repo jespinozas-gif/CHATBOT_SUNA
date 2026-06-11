@@ -57,10 +57,11 @@ loginBtn.onclick = async () => {
             chatSection.style.display = "block";
 
         } else {
-            alert(data.error);
+            alert(data.error || "Error en login");
         }
 
     } catch (err) {
+        console.error(err);
         alert("No se pudo conectar con la API");
     }
 
@@ -69,9 +70,7 @@ loginBtn.onclick = async () => {
 sendBtn.onclick = sendMessage;
 
 input.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-        sendMessage();
-    }
+    if (e.key === "Enter") sendMessage();
 });
 
 async function sendMessage() {
@@ -103,10 +102,21 @@ async function sendMessage() {
 
         const data = await resp.json();
 
+        if (data.success === false) {
+            addMessage(data.respuesta || "Error del servidor", "bot");
+            return;
+        }
+
+        if (!data.respuesta) {
+            addMessage("Respuesta vacía del servidor", "bot");
+            return;
+        }
+
         addMessage(data.respuesta, "bot");
 
     } catch (err) {
-        addMessage("Error al consultar la API.", "bot");
+        console.error(err);
+        addMessage("Error al conectar con la API", "bot");
     }
 
     body.scrollTop = body.scrollHeight;
