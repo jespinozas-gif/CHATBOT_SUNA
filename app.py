@@ -19,10 +19,12 @@ CORS(app)
 # =========================
 # CONFIG
 # =========================
-
+import os
 PASSWORD = "PRUEBASUNA"
 
-EXCEL_FILE = "consolidadosuna.xlsx"
+#EXCEL_FILE = "consolidadosuna.xlsx"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+EXCEL_FILE = os.path.join(BASE_DIR, "consolidadosuna.xlsx")
 SHEET_NAME = "Consolidado_29.05"
 SHEET_DIC = "DIC"
 
@@ -143,6 +145,11 @@ def chat():
     ]
 
     data = df_filtrado[columnas].to_dict(orient="records")
+
+    print("DF_DIC SHAPE:", df_dic.shape)
+    print("CATEGORIAS:", categorias_finales)
+    print("COLUMNAS:", columnas)
+    print("DATA LEN:", len(data))
 
     # =========================
     # PROMPT
