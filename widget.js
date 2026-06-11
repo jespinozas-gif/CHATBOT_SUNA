@@ -125,6 +125,6 @@ async function sendMessage() {
 function addMessage(text, type) {
     const div = document.createElement("div");
     div.classList.add("msg", type);
-    div.innerText = text;
+    div.innerHTML = marked.parse(text);
     body.appendChild(div);
 }
