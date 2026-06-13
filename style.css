@@ -225,3 +225,9 @@ body{
         opacity: 1;
     }
 }
+#chat-section{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    min-height:0;
+}
