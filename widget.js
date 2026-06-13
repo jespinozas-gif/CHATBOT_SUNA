@@ -54,7 +54,7 @@ loginBtn.onclick = async () => {
             sessionStorage.setItem("intendencia", intendencia);
 
             loginSection.style.display = "none";
-            chatSection.style.display = "block";
+            chatSection.style.display = "flex";
 
         } else {
             alert(data.error || "Error en login");
@@ -67,10 +67,12 @@ loginBtn.onclick = async () => {
 
 };
 
-Btn.onclick = Message;
+sendBtn.onclick = sendMessage;
 
 input.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") Message();
+    if (e.key === "Enter") {
+        sendMessage();
+    }
 });
 
 async function sendMessage() {
