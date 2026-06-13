@@ -67,10 +67,10 @@ loginBtn.onclick = async () => {
 
 };
 
-sendBtn.onclick = sendMessage;
+Btn.onclick = Message;
 
 input.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") sendMessage();
+    if (e.key === "Enter") Message();
 });
 
 async function sendMessage() {
@@ -99,6 +99,7 @@ async function sendMessage() {
         </div>
         `;
         body.appendChild(typingDiv);
+        body.scrollTop = body.scrollHeight;
 
         const resp = await fetch(API_URL + "/chat", {
             method: "POST",
@@ -127,6 +128,7 @@ async function sendMessage() {
 
         document.getElementById("typing-indicator")?.remove();
         addMessage(data.respuesta, "bot");
+        body.scrollTop = body.scrollHeight;
 
     } catch (err) {
         document.getElementById("typing-indicator")?.remove();
@@ -142,7 +144,5 @@ function addMessage(text, type) {
     div.classList.add("msg", type);
     div.innerHTML = marked.parse(text);
     body.appendChild(div);
-    setTimeout(() => {
-        body.scrollTop = body.scrollHeight;
-    }, 50);
+    body.scrollTop = body.scrollHeight;
 }
