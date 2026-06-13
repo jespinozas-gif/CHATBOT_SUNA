@@ -142,5 +142,7 @@ function addMessage(text, type) {
     div.classList.add("msg", type);
     div.innerHTML = marked.parse(text);
     body.appendChild(div);
-    body.scrollTop = body.scrollHeight;
+    setTimeout(() => {
+        body.scrollTop = body.scrollHeight;
+    }, 50);
 }
