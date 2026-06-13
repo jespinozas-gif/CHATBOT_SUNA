@@ -99,8 +99,7 @@ async function sendMessage() {
         </div>
         `;
         body.appendChild(typingDiv);
-        body.scrollTop = body.scrollHeight;
-
+        
         const resp = await fetch(API_URL + "/chat", {
             method: "POST",
             headers: {
