@@ -138,9 +138,6 @@ body{
     padding: 10px;
     overflow-y: auto;
     overflow-x: hidden;
-    min-height: 0;
-    max-height: 320px;
-    font-size: 14px;
 }
 
 .msg{
