@@ -128,7 +128,7 @@ async function sendMessage() {
         document.getElementById("typing-indicator")?.remove();
         addMessage(data.respuesta, "bot");
 
-    } catch (err) {
+    catch (err) {
         document.getElementById("typing-indicator")?.remove();
         console.error(err);
         addMessage("Error al conectar con la API", "bot");
