@@ -128,7 +128,6 @@ async function sendMessage() {
 
         document.getElementById("typing-indicator")?.remove();
         addMessage(data.respuesta, "bot");
-        body.scrollTop = body.scrollHeight;
 
     } catch (err) {
         document.getElementById("typing-indicator")?.remove();
